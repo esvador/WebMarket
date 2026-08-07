@@ -795,10 +795,11 @@ svg.icon { width: 20px; height: 20px; flex: none; display: block; }
   overflow: hidden;
   height: 360px;
 }
-.slider-track { display: flex; height: 100%; transition: transform 420ms ease; }
+.slider-track { display: flex; width: 100%; height: 100%; transition: transform 420ms ease; }
 .slide {
   flex: none;
   width: 100%;
+  min-width: 0;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -806,6 +807,7 @@ svg.icon { width: 20px; height: 20px; flex: none; display: block; }
   gap: var(--sp-4);
   padding: var(--sp-9) 64px;
   color: #fff;
+  overflow: hidden;
 }
 .slide-eyebrow { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; opacity: .85; }
 .slide-title { font-size: 36px; max-width: 520px; }
