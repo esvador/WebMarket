@@ -46,8 +46,9 @@
     return 'data:image/svg+xml,' + encodeURIComponent(svg);
   }
 
-  function images(categoryId, title) {
-    return [0, 1, 2, 3].map(function (i) { return placeholderImage(categoryId, title, i); });
+  function images(id, categoryId, title) {
+    // real photo first (img/pN.jpg), gradient placeholders as the remaining gallery shots
+    return ['img/p' + id + '.jpg'].concat([1, 2, 3].map(function (i) { return placeholderImage(categoryId, title, i); }));
   }
 
   function pct(price, oldPrice) {
@@ -377,7 +378,7 @@
   var PRODUCTS = RAW.map(function (p) {
     p.oldPrice = p.oldPrice || null;
     p.discount = pct(p.price, p.oldPrice);
-    p.images = images(p.category, p.title);
+    p.images = images(p.id, p.category, p.title);
     var catTitle = (CATEGORIES.filter(function (c) { return c.id === p.category; })[0] || {}).title || '';
     p.search = (p.title + ' ' + catTitle + ' ' + p.description).toLowerCase();
     return p;
