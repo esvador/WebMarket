@@ -58,7 +58,7 @@
   mainEl.innerHTML =
     '<div class="section-head"><h1 class="section-title" id="catalog-title">Каталог</h1></div>' +
     '<div class="catalog-layout">' +
-      '<aside class="filters" id="filters" hidden>' +
+      '<aside class="filters" id="filters">' +
         '<div class="filter-group"><span class="filter-title">Категории</span><div class="filter-options" id="filter-categories">' + categoryFilterHtml() + '</div></div>' +
         '<div class="filter-group"><span class="filter-title">Цена, ₽</span><div class="filter-price">' +
           '<input type="number" class="input" id="price-min" placeholder="' + Catalog.priceRange.min + '" min="0">' +
@@ -174,13 +174,13 @@
   }
 
   function openMobileFilters() {
-    document.getElementById('filters').hidden = false;
+    document.getElementById('filters').classList.add('is-open');
     document.getElementById('filters-overlay').hidden = false;
     document.body.style.overflow = 'hidden';
   }
 
   function closeMobileFilters() {
-    document.getElementById('filters').hidden = true;
+    document.getElementById('filters').classList.remove('is-open');
     document.getElementById('filters-overlay').hidden = true;
     document.body.style.overflow = '';
   }
